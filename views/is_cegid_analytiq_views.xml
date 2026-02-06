@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Vue Tree -->
+    <record id="is_cegid_analytiq_tree_view" model="ir.ui.view">
+        <field name="name">is.cegid.analytiq.tree</field>
+        <field name="model">is.cegid.analytiq</field>
+        <field name="arch" type="xml">
+            <tree string="Écritures Analytiques">
+                <field name="y_datecomptable"/>
+                <field name="y_general"/>
+                <field name="y_axe"/>
+                <field name="y_section"/>
+                <field name="y_refinterne"/>
+                <field name="y_libelle"/>
+                <field name="y_naturepiece"/>
+                <field name="y_refexterne"/>
+                <field name="y_journal"/>
+                <field name="y_contrepartieaux"/>
+                <field name="y_debit" sum="Total Débit"/>
+                <field name="y_credit" sum="Total Crédit"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vue Form -->
+    <record id="is_cegid_analytiq_form_view" model="ir.ui.view">
+        <field name="name">is.cegid.analytiq.form</field>
+        <field name="model">is.cegid.analytiq</field>
+        <field name="arch" type="xml">
+            <form string="Écriture Analytique">
+                <sheet>
+                    <group>
+                        <group string="Informations Générales">
+                            <field name="y_datecomptable"/>
+                            <field name="y_general"/>
+                            <field name="y_axe"/>
+                            <field name="y_section"/>
+                            <field name="y_refinterne"/>
+                            <field name="y_libelle"/>
+                        </group>
+                        <group string="Références">
+                            <field name="y_naturepiece"/>
+                            <field name="y_refexterne"/>
+                            <field name="y_journal"/>
+                            <field name="y_contrepartieaux"/>
+                            <field name="y_debit"/>
+                            <field name="y_credit"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vue Search -->
+    <record id="is_cegid_analytiq_search_view" model="ir.ui.view">
+        <field name="name">is.cegid.analytiq.search</field>
+        <field name="model">is.cegid.analytiq</field>
+        <field name="arch" type="xml">
+            <search string="Recherche Écritures Analytiques">
+                <field name="y_general"/>
+                <field name="y_section"/>
+                <field name="y_libelle"/>
+                <field name="y_journal"/>
+                <field name="y_contrepartieaux"/>
+                <separator/>
+                <filter string="Avec Débit" name="avec_debit" domain="[('y_debit', '>', 0)]"/>
+                <filter string="Avec Crédit" name="avec_credit" domain="[('y_credit', '>', 0)]"/>
+                <separator/>
+                <group expand="0" string="Grouper par">
+                    <filter string="Date Comptable" name="group_date" context="{'group_by': 'y_datecomptable:month'}"/>
+                    <filter string="Compte Général" name="group_general" context="{'group_by': 'y_general'}"/>
+                    <filter string="Axe" name="group_axe" context="{'group_by': 'y_axe'}"/>
+                    <filter string="Section" name="group_section" context="{'group_by': 'y_section'}"/>
+                    <filter string="Journal" name="group_journal" context="{'group_by': 'y_journal'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="is_cegid_analytiq_action" model="ir.actions.act_window">
+        <field name="name">Écritures Analytiques</field>
+        <field name="res_model">is.cegid.analytiq</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="is_cegid_analytiq_search_view"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Aucune écriture analytique trouvée
+            </p>
+            <p>
+                Cette table contient les écritures analytiques importées depuis Cegid.
+            </p>
+        </field>
+    </record>
+
+</odoo>

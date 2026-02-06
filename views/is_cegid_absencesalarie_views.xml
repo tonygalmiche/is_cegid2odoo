@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Vue Tree -->
+    <record id="is_cegid_absencesalarie_tree_view" model="ir.ui.view">
+        <field name="name">is.cegid.absencesalarie.tree</field>
+        <field name="model">is.cegid.absencesalarie</field>
+        <field name="arch" type="xml">
+            <tree string="Absences Salariés">
+                <field name="pcn_typemvt"/>
+                <field name="pcn_salarie"/>
+                <field name="pcn_ordre"/>
+                <field name="pcn_periodecp"/>
+                <field name="pcn_typeconge"/>
+                <field name="pcn_sensabs"/>
+                <field name="pcn_libelle"/>
+                <field name="pcn_datedebutabs"/>
+                <field name="pcn_debutdj"/>
+                <field name="pcn_datefinabs"/>
+                <field name="pcn_findj"/>
+                <field name="pcn_jours" sum="Total Jours"/>
+                <field name="pcn_heures" sum="Total Heures"/>
+                <field name="pcn_guid" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vue Form -->
+    <record id="is_cegid_absencesalarie_form_view" model="ir.ui.view">
+        <field name="name">is.cegid.absencesalarie.form</field>
+        <field name="model">is.cegid.absencesalarie</field>
+        <field name="arch" type="xml">
+            <form string="Absence Salarié">
+                <sheet>
+                    <group>
+                        <group string="Informations Générales">
+                            <field name="pcn_typemvt"/>
+                            <field name="pcn_salarie"/>
+                            <field name="pcn_ordre"/>
+                            <field name="pcn_periodecp"/>
+                            <field name="pcn_typeconge"/>
+                            <field name="pcn_sensabs"/>
+                            <field name="pcn_libelle"/>
+                        </group>
+                        <group string="Période">
+                            <field name="pcn_datedebutabs"/>
+                            <field name="pcn_debutdj"/>
+                            <field name="pcn_datefinabs"/>
+                            <field name="pcn_findj"/>
+                            <field name="pcn_jours"/>
+                            <field name="pcn_heures"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="pcn_guid"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vue Search -->
+    <record id="is_cegid_absencesalarie_search_view" model="ir.ui.view">
+        <field name="name">is.cegid.absencesalarie.search</field>
+        <field name="model">is.cegid.absencesalarie</field>
+        <field name="arch" type="xml">
+            <search string="Recherche Absences">
+                <field name="pcn_salarie"/>
+                <field name="pcn_typeconge"/>
+                <field name="pcn_libelle"/>
+                <field name="pcn_typemvt"/>
+                <separator/>
+                <filter string="Type ABS" name="type_abs" domain="[('pcn_typemvt', '=', 'ABS')]"/>
+                <filter string="Type CPA" name="type_cpa" domain="[('pcn_typemvt', '=', 'CPA')]"/>
+                <separator/>
+                <filter string="Congé HRC" name="conge_hrc" domain="[('pcn_typeconge', '=', 'HRC')]"/>
+                <filter string="Congé ACQ" name="conge_acq" domain="[('pcn_typeconge', '=', 'ACQ')]"/>
+                <filter string="Congé ARR" name="conge_arr" domain="[('pcn_typeconge', '=', 'ARR')]"/>
+                <separator/>
+                <group expand="0" string="Grouper par">
+                    <filter string="Salarié" name="group_salarie" context="{'group_by': 'pcn_salarie'}"/>
+                    <filter string="Type Mouvement" name="group_typemvt" context="{'group_by': 'pcn_typemvt'}"/>
+                    <filter string="Type Congé" name="group_typeconge" context="{'group_by': 'pcn_typeconge'}"/>
+                    <filter string="Date Début" name="group_datedebutabs" context="{'group_by': 'pcn_datedebutabs:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="is_cegid_absencesalarie_action" model="ir.actions.act_window">
+        <field name="name">Absences Salariés</field>
+        <field name="res_model">is.cegid.absencesalarie</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="is_cegid_absencesalarie_search_view"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Aucune absence trouvée
+            </p>
+            <p>
+                Cette table contient les absences des salariés importées depuis Cegid.
+            </p>
+        </field>
+    </record>
+
+</odoo>

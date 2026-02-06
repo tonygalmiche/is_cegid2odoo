@@ -3,6 +3,9 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# Configuration sensible
+script-externe/config.py
+
 # C extensions
 *.so
 

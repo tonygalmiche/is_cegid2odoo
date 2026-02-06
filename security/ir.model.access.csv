@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_is_cegid_histocumsal_user,is.cegid.histocumsal.user,model_is_cegid_histocumsal,group_cegid_user,1,1,1,1
+access_is_cegid_ecriture_user,is.cegid.ecriture.user,model_is_cegid_ecriture,group_cegid_user,1,1,1,1
+access_is_cegid_absencesalarie_user,is.cegid.absencesalarie.user,model_is_cegid_absencesalarie,group_cegid_user,1,1,1,1
+access_is_cegid_analytiq_user,is.cegid.analytiq.user,model_is_cegid_analytiq,group_cegid_user,1,1,1,1
+access_is_cegid_import_user,is.cegid.import.user,model_is_cegid_import,group_cegid_user,1,1,1,1

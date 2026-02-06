@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Menu principal Cegid -->
+    <menuitem id="menu_cegid_root"
+              name="Cegid"
+              sequence="100"
+              groups="group_cegid_user"
+              web_icon="is_cegid2odoo,static/description/icon.png"/>
+
+    <!-- Sous-menu Tables -->
+    <menuitem id="menu_cegid_tables"
+              name="Tables Cegid"
+              parent="menu_cegid_root"
+              sequence="10"/>
+
+
+    <!-- Menu Écritures Comptables -->
+    <menuitem id="menu_cegid_ecriture"
+              name="Écritures Comptables"
+              parent="menu_cegid_tables"
+              action="is_cegid_ecriture_action"
+              sequence="10"/>
+
+
+    <!-- Menu Écritures Analytiques -->
+    <menuitem id="menu_cegid_analytiq"
+              name="Écritures Analytiques"
+              parent="menu_cegid_tables"
+              action="is_cegid_analytiq_action"
+              sequence="20"/>
+
+
+
+    <!-- Menu Absences Salariés -->
+    <menuitem id="menu_cegid_absencesalarie"
+              name="Absences Salariés"
+              parent="menu_cegid_tables"
+              action="is_cegid_absencesalarie_action"
+              sequence="30"/>
+
+    <!-- Menu Historique Cumuls Salaires -->
+    <menuitem id="menu_cegid_histocumsal"
+              name="Historique Cumuls Salaires"
+              parent="menu_cegid_tables"
+              action="is_cegid_histocumsal_action"
+              sequence="40"/>
+
+    <!-- Sous-menu Administration -->
+    <menuitem id="menu_cegid_admin"
+              name="Administration"
+              parent="menu_cegid_root"
+              sequence="90"/>
+
+    <!-- Action serveur pour lancer l'import manuellement -->
+    <record id="action_cegid_import_csv_manual" model="ir.actions.server">
+        <field name="name">Exécuter l'import CSV Cegid</field>
+        <field name="model_id" ref="model_is_cegid_import"/>
+        <field name="binding_model_id" ref="model_is_cegid_import"/>
+        <field name="state">code</field>
+        <field name="code">model.cron_import_csv_files()</field>
+    </record>
+
+    <!-- Menu pour lancer l'import manuellement -->
+    <menuitem id="menu_cegid_import_manual"
+              name="Importer fichiers CSV"
+              parent="menu_cegid_admin"
+              action="action_cegid_import_csv_manual"
+              sequence="10"/>
+
+</odoo>

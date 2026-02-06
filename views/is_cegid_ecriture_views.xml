@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Vue Tree -->
+    <record id="is_cegid_ecriture_tree_view" model="ir.ui.view">
+        <field name="name">is.cegid.ecriture.tree</field>
+        <field name="model">is.cegid.ecriture</field>
+        <field name="arch" type="xml">
+            <tree string="Écritures Comptables">
+                <field name="e_datecomptable"/>
+                <field name="e_refinterne"/>
+                <field name="e_libelle"/>
+                <field name="e_general"/>
+                <field name="e_debit" sum="Total Débit"/>
+                <field name="e_credit" sum="Total Crédit"/>
+                <field name="e_auxiliaire"/>
+                <field name="e_reflibre"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vue Form -->
+    <record id="is_cegid_ecriture_form_view" model="ir.ui.view">
+        <field name="name">is.cegid.ecriture.form</field>
+        <field name="model">is.cegid.ecriture</field>
+        <field name="arch" type="xml">
+            <form string="Écriture Comptable">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="e_datecomptable"/>
+                            <field name="e_refinterne"/>
+                            <field name="e_libelle"/>
+                            <field name="e_general"/>
+                        </group>
+                        <group>
+                            <field name="e_debit"/>
+                            <field name="e_credit"/>
+                            <field name="e_auxiliaire"/>
+                            <field name="e_reflibre"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vue Search -->
+    <record id="is_cegid_ecriture_search_view" model="ir.ui.view">
+        <field name="name">is.cegid.ecriture.search</field>
+        <field name="model">is.cegid.ecriture</field>
+        <field name="arch" type="xml">
+            <search string="Recherche Écritures">
+                <field name="e_refinterne"/>
+                <field name="e_libelle"/>
+                <field name="e_general"/>
+                <field name="e_auxiliaire"/>
+                <field name="e_reflibre"/>
+                <separator/>
+                <filter string="Avec Débit" name="avec_debit" domain="[('e_debit', '>', 0)]"/>
+                <filter string="Avec Crédit" name="avec_credit" domain="[('e_credit', '>', 0)]"/>
+                <separator/>
+                <group expand="0" string="Grouper par">
+                    <filter string="Date Comptable" name="group_date" context="{'group_by': 'e_datecomptable:month'}"/>
+                    <filter string="Compte Général" name="group_general" context="{'group_by': 'e_general'}"/>
+                    <filter string="Auxiliaire" name="group_auxiliaire" context="{'group_by': 'e_auxiliaire'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="is_cegid_ecriture_action" model="ir.actions.act_window">
+        <field name="name">Écritures Comptables</field>
+        <field name="res_model">is.cegid.ecriture</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="is_cegid_ecriture_search_view"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Aucune écriture trouvée
+            </p>
+            <p>
+                Cette table contient les écritures comptables importées depuis Cegid.
+            </p>
+        </field>
+    </record>
+
+</odoo>

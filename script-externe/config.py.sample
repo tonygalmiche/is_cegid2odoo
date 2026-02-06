@@ -1,0 +1,7 @@
+# Configuration pour le transfert Azure CEGID
+
+# URL SAS pour accéder au conteneur Azure Blob Storage
+sas_url = "https://votre-compte.blob.core.windows.net/conteneur?sv=xxxx&se=xxxx&sr=c&sp=rdl&sig=xxxx"
+
+# Dossier de destination pour les fichiers téléchargés
+dossier_de_destintion = "/chemin/vers/dossier/IMPORT_CEGID/"
