@@ -52,6 +52,20 @@
               parent="menu_cegid_root"
               sequence="90"/>
 
+    <!-- Action pour ouvrir Cegid Data Access -->
+    <record id="action_cegid_data_access" model="ir.actions.act_url">
+        <field name="name">Cegid Data Access</field>
+        <field name="url">https://cda.cegid.cloud/query</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Menu Cegid Data Access -->
+    <menuitem id="menu_cegid_data_access"
+              name="Cegid Data Access"
+              parent="menu_cegid_admin"
+              action="action_cegid_data_access"
+              sequence="5"/>
+
     <!-- Action serveur pour lancer l'import manuellement -->
     <record id="action_cegid_import_csv_manual" model="ir.actions.server">
         <field name="name">Exécuter l'import CSV Cegid</field>
