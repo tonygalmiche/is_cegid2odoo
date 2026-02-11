@@ -1,20 +1,38 @@
 import os
-from azure.storage.blob import BlobServiceClient, ContainerClient
-from config import sas_url, dossier_de_destintion
+import sys
+from azure.storage.blob import ContainerClient
+from config import mode, sas_url, dossier_de_destintion
+from cegid_common import get_sas_url_from_api
 
 
-#** Mise en place de l’environnent python pour ce script **********************
+#** Mise en place de l'environnent python pour ce script **********************
 # mkdir /opt/transfert-azure-cegid
 # cd /opt/transfert-azure-cegid/
 # python3 -m venv venv
 # source venv/bin/activate
 # pip install --upgrade pip
-# pip install azure-storage-blob
-# /opt/transfert-azure-cegid/venv/bin/python  /opt/addons/is_cegid2odoo/script-externe/transfert-azure-cegid.py 
+# pip install azure-storage-blob requests
+# /opt/transfert-azure-cegid/venv/bin/python  /opt/addons/is_cegid2odoo/script-externe/transfert-azure-cegid.py
+
+
+def get_container_client():
+    """Obtenir le client de conteneur Azure selon le mode configuré."""
+    if mode == "api":
+        print("Mode : API Cegid Data Access")
+        print("-" * 120)
+        container_url = get_sas_url_from_api()
+    elif mode == "sas_url":
+        print("Mode : SAS URL statique (dépannage)")
+        print("-" * 120)
+        container_url = sas_url
+    else:
+        print(f"ERREUR: Mode '{mode}' non reconnu. Utilisez 'api' ou 'sas_url'.")
+        sys.exit(1)
+    return ContainerClient.from_container_url(container_url)
 
 
 # Créer un client pour le conteneur
-container_client = ContainerClient.from_container_url(sas_url)
+container_client = get_container_client()
 
 # Récupérer tous les fichiers
 blobs = list(container_client.list_blobs())

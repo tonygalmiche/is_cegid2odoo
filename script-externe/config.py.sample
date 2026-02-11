@@ -1,7 +1,48 @@
 # Configuration pour le transfert Azure CEGID
 
-# URL SAS pour accéder au conteneur Azure Blob Storage
+# ==============================================================================
+# MODE DE CONNEXION : "api" ou "sas_url"
+# - "api"     : utilise la clé API Cegid pour générer automatiquement un SAS token
+#               (recommandé, fonctionne sans limite de durée)
+# - "sas_url" : utilise une URL SAS statique (valide 24h, pour dépannage)
+# ==============================================================================
+mode = "api"
+
+# ------------------------------------------------------------------------------
+# Configuration API Cegid Data Access (mode "api")
+# ------------------------------------------------------------------------------
+# URL de base de l'API Cegid Data Access
+cegid_api_base_url = "https://api.cegid.com/cda-customers-00"
+
+# Identifiant client (numéro de compte Cegid)
+cegid_tenant_id = "VOTRE_TENANT_ID"
+
+# Clé d'API générée dans le menu Cegid > Clés d'API
+cegid_api_key_id = "VOTRE_API_KEY_ID"
+
+# Secret de la clé d'API (affiché une seule fois lors de la création)
+cegid_api_key_secret = "VOTRE_API_KEY_SECRET"
+
+# Clé d'abonnement (Ocp-Apim-Subscription-Key) du portail développeur Cegid
+cegid_subscription_key = "VOTRE_SUBSCRIPTION_KEY"
+
+# ------------------------------------------------------------------------------
+# Configuration pour le script cegid-requetes.py
+# ------------------------------------------------------------------------------
+# Provider ID : identifiant du fournisseur de données (GUID)
+# Laisser vide pour le découvrir automatiquement via --discover
+cegid_provider_id = ""
+
+# Heure de forçage de la prochaine exécution (format HH:MM)
+# Si vide, l'exécution sera planifiée dans les 15 prochaines minutes
+cegid_force_time = ""
+
+# ------------------------------------------------------------------------------
+# Configuration SAS URL statique (mode "sas_url", pour dépannage)
+# ------------------------------------------------------------------------------
 sas_url = "https://votre-compte.blob.core.windows.net/conteneur?sv=xxxx&se=xxxx&sr=c&sp=rdl&sig=xxxx"
 
+# ------------------------------------------------------------------------------
 # Dossier de destination pour les fichiers téléchargés
+# ------------------------------------------------------------------------------
 dossier_de_destintion = "/chemin/vers/dossier/IMPORT_CEGID/"
