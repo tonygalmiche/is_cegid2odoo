@@ -8,6 +8,17 @@
               groups="group_cegid_user"
               web_icon="is_cegid2odoo,static/description/icon.png"/>
 
+    <record id="cegid_tous_menus" model="ir.ui.menu">
+        <field name="name">🏠</field>
+        <field name="sequence">1</field>
+        <field name="parent_id" ref="menu_cegid_root"/>
+        <field name="action" ref="is_top_menu.menu_navigator_action"/>
+    </record>
+
+
+
+
+
     <!-- Sous-menu Tables -->
     <menuitem id="menu_cegid_tables"
               name="Tables Cegid"

@@ -20,7 +20,10 @@
     "category" : "InfoSaône",
     'website': '',
     'license': 'LGPL-3',
-    'depends': ['base'],
+    'depends': [
+        'base',
+        'is_top_menu'
+    ],
     'data': [
         'security/is_cegid_security.xml',
         'security/ir.model.access.csv',
