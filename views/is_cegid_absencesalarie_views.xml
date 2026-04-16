@@ -12,6 +12,7 @@
                 <field name="pcn_ordre"/>
                 <field name="pcn_periodecp"/>
                 <field name="pcn_typeconge"/>
+                <field name="pcn_typeimpute"/>
                 <field name="pcn_sensabs"/>
                 <field name="pcn_libelle"/>
                 <field name="pcn_datedebutabs"/>
