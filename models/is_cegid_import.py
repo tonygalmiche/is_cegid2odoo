@@ -54,6 +54,7 @@ class IsCegidImport(models.Model):
                 'PCN_PERIODECP': 'pcn_periodecp',
                 'PCN_TYPECONGE': 'pcn_typeconge',
                 'PCN_TYPEIMPUTE': 'pcn_typeimpute',
+                'PCN_MVTDUPLIQUE': 'pcn_mvtduplique',
                 'PCN_SENSABS': 'pcn_sensabs',
                 'PCN_LIBELLE': 'pcn_libelle',
                 'PCN_DATEDEBUTABS': 'pcn_datedebutabs',

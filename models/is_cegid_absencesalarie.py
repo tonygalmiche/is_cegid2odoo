@@ -14,6 +14,7 @@ class IsCegidAbsencesalarie(models.Model):
     pcn_periodecp = fields.Integer(string='Période CP')
     pcn_typeconge = fields.Char(string='Type Congé', index=True)
     pcn_typeimpute = fields.Char(string='PCN_TYPEIMPUTE', index=True)
+    pcn_mvtduplique = fields.Char(string='PCN_MVTDUPLIQUE', index=True)
     pcn_sensabs = fields.Char(string='Sens Abs')
     pcn_libelle = fields.Char(string='Libellé')
     pcn_datedebutabs = fields.Datetime(string='Date Début Abs', index=True)
