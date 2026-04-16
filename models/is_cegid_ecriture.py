@@ -16,6 +16,7 @@ class IsCegidEcriture(models.Model):
     e_credit = fields.Float(string='Crédit', digits=(12, 2))
     e_auxiliaire = fields.Char(string='Auxiliaire', index=True)
     e_reflibre = fields.Char(string='Réf. Libre')
+    source_fichier = fields.Char(string='Fichier source')
 
     def name_get(self):
         result = []

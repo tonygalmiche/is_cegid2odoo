@@ -21,6 +21,9 @@
                 <field name="pcn_jours" sum="Total Jours"/>
                 <field name="pcn_heures" sum="Total Heures"/>
                 <field name="pcn_guid" optional="hide"/>
+                <field name="source_fichier" optional="hide"/>
+                <field name="create_date" optional="hide"/>
+                <field name="write_date" optional="hide"/>
             </tree>
         </field>
     </record>

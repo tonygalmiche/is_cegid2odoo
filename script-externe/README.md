@@ -47,12 +47,12 @@ Ce mode nécessite 4 paramètres dans `config.py` :
 
 #### Étape 1 : Créer une clé d'API (portail Cegid Gestion des comptes)
 
-1. Aller sur **[account.cegid.com](https://account.cegid.com)**
+1. Aller sur **[account.cegid.com](https://accounts.cegid.com)**
 2. Se connecter avec votre compte Cegid
 3. Dans le menu latéral gauche, cliquer sur **Clés d'API**
-4. Cliquer sur **Créer une clé d'API**
-5. Donner un nom à la clé (ex: `cegid-data-access-pour-odoo`)
-6. Associer le service **Cegid Data Access (SAAS_DATA_ACCESS)**
+4. Cliquer sur **Générer une clé d'API en haut à droite**
+5. Sélectionner le service **Cégid Data Access**
+6. Donner un nom à la clé (ex: `cegid-data-access-pour-odoo`)
 7. Valider la création
 8. **IMPORTANT** : noter immédiatement le **Secret** affiché — il n'est montré qu'une seule fois !
 9. Noter également l'**ID** de la clé (affiché en bleu sous le nom)

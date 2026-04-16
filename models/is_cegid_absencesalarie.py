@@ -22,6 +22,7 @@ class IsCegidAbsencesalarie(models.Model):
     pcn_jours = fields.Float(string='Jours', digits=(10, 2))
     pcn_heures = fields.Float(string='Heures', digits=(10, 2))
     pcn_guid = fields.Char(string='GUID')
+    source_fichier = fields.Char(string='Fichier source')
 
     def name_get(self):
         result = []

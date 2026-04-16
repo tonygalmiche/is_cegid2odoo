@@ -276,7 +276,7 @@ class IsCegidImport(models.Model):
         # Préparer les données pour insertion
         records_to_create = []
         for row in rows:
-            vals = {}
+            vals = {'source_fichier': filename}
             for csv_col, odoo_field in file_column_mapping.items():
                 value = row.get(csv_col, '')
                 converted_value = self._convert_value(value, odoo_field, model_obj)
@@ -399,9 +399,9 @@ class IsCegidImport(models.Model):
             
             _logger.info(f"  -> {len(csv_files)} fichier(s) CSV trouvé(s): {', '.join(csv_files)}")
             
-            for csv_file in csv_files:
+            for csv_file_idx, csv_file in enumerate(csv_files, 1):
                 filepath = os.path.join(csv_path, csv_file)
-                _logger.info(f"  -> Traitement du fichier: {csv_file}")
+                _logger.info(f"  -> Traitement du fichier ({csv_file_idx}/{len(csv_files)}): {csv_file}")
                 
                 try:
                     # Importer le fichier

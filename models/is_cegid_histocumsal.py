@@ -11,6 +11,7 @@ class IsCegidHistocumsal(models.Model):
     phc_salarie = fields.Char(string='Salarié', required=True, index=True)
     phc_cumulpaie = fields.Char(string='Cumul Paie', required=True, index=True)
     phc_montant = fields.Float(string='Montant', digits=(12, 2))
+    source_fichier = fields.Char(string='Fichier source')
 
     _sql_constraints = [
         ('salarie_cumulpaie_unique', 

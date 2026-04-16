@@ -15,6 +15,9 @@
                 <field name="e_credit" sum="Total Crédit"/>
                 <field name="e_auxiliaire"/>
                 <field name="e_reflibre"/>
+                <field name="source_fichier" optional="hide"/>
+                <field name="create_date" optional="hide"/>
+                <field name="write_date" optional="hide"/>
             </tree>
         </field>
     </record>

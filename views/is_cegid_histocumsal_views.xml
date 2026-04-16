@@ -10,6 +10,9 @@
                 <field name="phc_salarie"/>
                 <field name="phc_cumulpaie"/>
                 <field name="phc_montant" sum="Total"/>
+                <field name="source_fichier" optional="hide"/>
+                <field name="create_date" optional="hide"/>
+                <field name="write_date" optional="hide"/>
             </tree>
         </field>
     </record>

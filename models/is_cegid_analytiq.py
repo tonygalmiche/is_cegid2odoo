@@ -20,6 +20,7 @@ class IsCegidAnalytiq(models.Model):
     y_contrepartieaux = fields.Char(string='Contrepartie Aux.')
     y_debit = fields.Float(string='Débit', digits=(12, 2))
     y_credit = fields.Float(string='Crédit', digits=(12, 2))
+    source_fichier = fields.Char(string='Fichier source')
 
     def name_get(self):
         result = []
