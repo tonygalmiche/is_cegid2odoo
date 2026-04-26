@@ -9,14 +9,15 @@ class IsCegidEcriture(models.Model):
     _order = 'e_datecomptable desc, e_refinterne'
 
     e_datecomptable = fields.Datetime(string='Date Comptable', index=True)
-    e_refinterne = fields.Char(string='Réf. Interne', index=True)
-    e_libelle = fields.Char(string='Libellé')
-    e_general = fields.Char(string='Général', index=True)
-    e_debit = fields.Float(string='Débit', digits=(12, 2))
-    e_credit = fields.Float(string='Crédit', digits=(12, 2))
-    e_auxiliaire = fields.Char(string='Auxiliaire', index=True)
-    e_reflibre = fields.Char(string='Réf. Libre')
-    source_fichier = fields.Char(string='Fichier source')
+    e_journal       = fields.Char(string='Journal', index=True)
+    e_refinterne    = fields.Char(string='Réf. Interne', index=True)
+    e_libelle       = fields.Char(string='Libellé')
+    e_general       = fields.Char(string='Général', index=True)
+    e_debit         = fields.Float(string='Débit', digits=(12, 2))
+    e_credit        = fields.Float(string='Crédit', digits=(12, 2))
+    e_auxiliaire    = fields.Char(string='Auxiliaire', index=True)
+    e_reflibre      = fields.Char(string='Réf. Libre')
+    source_fichier  = fields.Char(string='Fichier source')
 
     def name_get(self):
         result = []

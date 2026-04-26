@@ -8,6 +8,7 @@
         <field name="arch" type="xml">
             <tree string="Écritures Comptables">
                 <field name="e_datecomptable"/>
+                <field name="e_journal"/>
                 <field name="e_refinterne"/>
                 <field name="e_libelle"/>
                 <field name="e_general"/>
@@ -32,6 +33,7 @@
                     <group>
                         <group>
                             <field name="e_datecomptable"/>
+                            <field name="e_journal"/>
                             <field name="e_refinterne"/>
                             <field name="e_libelle"/>
                             <field name="e_general"/>
@@ -54,6 +56,7 @@
         <field name="model">is.cegid.ecriture</field>
         <field name="arch" type="xml">
             <search string="Recherche Écritures">
+                <field name="e_journal"/>
                 <field name="e_refinterne"/>
                 <field name="e_libelle"/>
                 <field name="e_general"/>

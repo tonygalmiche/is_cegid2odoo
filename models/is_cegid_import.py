@@ -34,6 +34,7 @@ class IsCegidImport(models.Model):
             'model': 'is.cegid.ecriture',
             'fields': {
                 'E_DATECOMPTABLE': 'e_datecomptable',
+                'E_JOURNAL': 'e_journal',
                 'E_REFINTERNE': 'e_refinterne',
                 'E_LIBELLE': 'e_libelle',
                 'E_GENERAL': 'e_general',
