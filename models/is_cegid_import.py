@@ -30,10 +30,11 @@ class IsCegidImport(models.Model):
             }
         },
         # is.cegid.ecriture
-        ('E_AUXILIAIRE', 'E_CREDIT', 'E_DATECOMPTABLE', 'E_DEBIT', 'E_GENERAL', 'E_LIBELLE', 'E_REFLIBRE', 'E_REFINTERNE'): {
+        ('E_AUXILIAIRE', 'E_CREDIT', 'E_DATECOMPTABLE', 'E_DATPER', 'E_DEBIT', 'E_GENERAL', 'E_LIBELLE', 'E_REFLIBRE', 'E_REFINTERNE'): {
             'model': 'is.cegid.ecriture',
             'fields': {
                 'E_DATECOMPTABLE': 'e_datecomptable',
+                'E_DATPER': 'e_datper',
                 'E_JOURNAL': 'e_journal',
                 'E_REFINTERNE': 'e_refinterne',
                 'E_LIBELLE': 'e_libelle',

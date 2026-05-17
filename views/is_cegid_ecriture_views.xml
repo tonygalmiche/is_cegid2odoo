@@ -8,14 +8,15 @@
         <field name="arch" type="xml">
             <tree string="Écritures Comptables">
                 <field name="e_datecomptable"/>
-                <field name="e_journal"/>
-                <field name="e_refinterne"/>
-                <field name="e_libelle"/>
-                <field name="e_general"/>
-                <field name="e_debit" sum="Total Débit"/>
-                <field name="e_credit" sum="Total Crédit"/>
-                <field name="e_auxiliaire"/>
-                <field name="e_reflibre"/>
+                <field name="e_datper" optional="show"/>
+                <field name="e_journal" optional="show"/>
+                <field name="e_refinterne" optional="show"/>
+                <field name="e_libelle" optional="show"/>
+                <field name="e_general" optional="show"/>
+                <field name="e_debit" optional="show" sum="Total Débit"/>
+                <field name="e_credit" optional="show" sum="Total Crédit"/>
+                <field name="e_auxiliaire" optional="show"/>
+                <field name="e_reflibre" optional="show"/>
                 <field name="source_fichier" optional="hide"/>
                 <field name="create_date" optional="hide"/>
                 <field name="write_date" optional="hide"/>
@@ -33,6 +34,7 @@
                     <group>
                         <group>
                             <field name="e_datecomptable"/>
+                            <field name="e_datper"/>
                             <field name="e_journal"/>
                             <field name="e_refinterne"/>
                             <field name="e_libelle"/>

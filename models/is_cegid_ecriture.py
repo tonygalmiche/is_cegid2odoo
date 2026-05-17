@@ -9,6 +9,7 @@ class IsCegidEcriture(models.Model):
     _order = 'e_datecomptable desc, e_refinterne'
 
     e_datecomptable = fields.Datetime(string='Date Comptable', index=True)
+    e_datper        = fields.Datetime(string='Date Echéance')
     e_journal       = fields.Char(string='Journal', index=True)
     e_refinterne    = fields.Char(string='Réf. Interne', index=True)
     e_libelle       = fields.Char(string='Libellé')
@@ -25,3 +26,4 @@ class IsCegidEcriture(models.Model):
             name = f"{record.e_refinterne} - {record.e_libelle or ''}"
             result.append((record.id, name))
         return result
+
