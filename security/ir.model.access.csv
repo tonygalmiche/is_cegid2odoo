@@ -4,3 +4,4 @@ access_is_cegid_ecriture_user,is.cegid.ecriture.user,model_is_cegid_ecriture,gro
 access_is_cegid_absencesalarie_user,is.cegid.absencesalarie.user,model_is_cegid_absencesalarie,group_cegid_user,1,1,1,1
 access_is_cegid_analytiq_user,is.cegid.analytiq.user,model_is_cegid_analytiq,group_cegid_user,1,1,1,1
 access_is_cegid_import_user,is.cegid.import.user,model_is_cegid_import,group_cegid_user,1,1,1,1
+access_is_cegid_import_account_manager,is.cegid.import.account.manager,model_is_cegid_import,account.group_account_manager,1,1,1,1

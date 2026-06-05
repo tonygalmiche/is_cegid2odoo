@@ -298,7 +298,7 @@ class IsCegidImport(models.Model):
         
         for i in range(0, total_records, batch_size):
             batch = records_to_create[i:i + batch_size]
-            model_obj.create(batch)
+            model_obj.sudo().create(batch)
             total_created += len(batch)
             if total_records > batch_size:
                 _logger.info(f"     Progression: {total_created}/{total_records} enregistrements créés ({int(total_created/total_records*100)}%)")

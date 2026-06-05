@@ -2,11 +2,12 @@
 <odoo>
 
     <!-- Menu principal Cegid -->
-    <menuitem id="menu_cegid_root"
-              name="Cegid"
-              sequence="100"
-              groups="group_cegid_user"
-              web_icon="is_cegid2odoo,static/description/icon.png"/>
+    <record id="menu_cegid_root" model="ir.ui.menu">
+        <field name="name">Cegid</field>
+        <field name="sequence">100</field>
+        <field name="web_icon">is_cegid2odoo,static/description/icon.png</field>
+        <field name="groups_id" eval="[(6,0,[ref('account.group_account_manager')])]"/>
+    </record>
 
     <record id="cegid_tous_menus" model="ir.ui.menu">
         <field name="name">🏠</field>
